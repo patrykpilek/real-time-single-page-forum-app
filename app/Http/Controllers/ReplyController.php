@@ -11,6 +11,16 @@ use Illuminate\Http\Response;
 class ReplyController extends Controller
 {
     /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('jwt', ['except' => ['index', 'show']]);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @param Question $question
